@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador Picasso · colores</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Misma base visual que el simulador v1; nuevo: tabs de modo, combo de periodo, paginacion, taller con avance en vivo. */
+:root{
+  --paper:#f2f3ef; --card:#fbfbf8; --ink:#1b2130; --muted:#5d6472; --line:#d9dbd3;
+  --blue:#2a4878; --rose:#b25a52; --ok:#2f6b4f; --wood:#8a6a4a;
+  --display:"Gloock", Georgia, serif; --body:"Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", Consolas, monospace; color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#11151d; --card:#181d27; --ink:#e7e9ee; --muted:#a2a9b6; --line:#2c3341;
+  --blue:#93b3ea; --rose:#e79a90; --ok:#7fc6a2; --wood:#c9a27a; color-scheme:dark}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 var(--body);padding:0 max(16px,env(safe-area-inset-left)) 64px}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.15;text-wrap:balance}
+header{padding:32px 0 18px;display:grid;gap:8px}
+header h1{font-size:clamp(2rem,4vw,2.8rem)}
+header p{margin:0;max-width:72ch;color:var(--muted)}
+.eyebrow{font:500 .74rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.top{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.top{grid-template-columns:1fr}}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;align-items:center}
+input,select,button{font:inherit;color:var(--ink)}
+input[type=search],select{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:7px 10px}
+input[type=search]{flex:1 1 220px;min-width:0}
+.check{display:inline-flex;gap:6px;align-items:center;font-size:.88rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;min-height:200px}
+.item{all:unset;cursor:pointer;display:grid;gap:4px;font-size:.78rem;color:var(--muted);border-radius:3px;padding:4px;position:relative}
+.item img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--line);border-radius:2px}
+.item b{color:var(--ink);font-weight:400;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item[aria-pressed="true"]{outline:2px solid var(--rose);outline-offset:1px}
+.item:focus-visible{outline:2px solid var(--blue)}
+.badge{position:absolute;top:8px;right:8px;background:var(--ink);color:var(--paper);font:500 .68rem/1 var(--mono);padding:4px 6px;border-radius:10px}
+.pager{display:flex;gap:8px;align-items:center;margin-top:12px;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+.pager span{flex:1 1 auto;text-align:center}
+.btn{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:6px 12px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:disabled{opacity:.45;cursor:default}
+.primary{background:var(--ink);color:var(--paper);border-color:var(--ink);padding:10px 18px;font-weight:700}
+.side{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:18px;display:grid;gap:14px;position:sticky;top:12px}
+.sel{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center}
+.sel img{width:96px;height:96px;object-fit:cover;border-radius:2px;background:var(--line)}
+.sel h3{font-size:1.25rem}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.tabs button{all:unset;cursor:pointer;text-align:center;padding:9px 6px;font-size:.88rem;line-height:1.25;border-right:1px solid var(--line)}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--paper);font-weight:700}
+.tabs button:focus-visible{outline:2px solid var(--blue);outline-offset:-3px}
+.field{display:grid;gap:6px}
+.field select{width:100%}
+.opts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:.88rem}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.status{font-size:.9rem;color:var(--muted);min-height:1.4em}
+.status.err{color:var(--rose)}
+.hint{font-size:.84rem;color:var(--muted);margin:0}
+.fiab b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{all:unset;cursor:pointer;font-size:.78rem;border:1px solid var(--line);border-radius:12px;padding:3px 9px;background:var(--paper)}
+.chips button:hover,.chips button:focus-visible{border-color:var(--ink)}
+
+/* ---- taller: avance en vivo ---- */
+.taller{margin-top:30px;border:1px solid var(--line);background:var(--card);border-radius:3px;padding:20px;display:grid;
+  grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:center}
+@media (max-width:720px){.taller{grid-template-columns:1fr}}
+.easel{position:relative;aspect-ratio:1;background:var(--paper);border:6px solid var(--wood);border-radius:2px;overflow:hidden;box-shadow:0 2px 0 var(--line)}
+.easel img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .45s ease}
+.easel .tex{position:absolute;inset:0;pointer-events:none;opacity:.18;
+  background:repeating-linear-gradient(45deg,transparent 0 3px,rgba(0,0,0,.18) 3px 4px),repeating-linear-gradient(-45deg,transparent 0 3px,rgba(255,255,255,.2) 3px 4px)}
+.tinfo{display:grid;gap:12px}
+.tinfo h2{font-size:1.5rem}
+.stages{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.92rem}
+.stages li{display:flex;gap:8px;align-items:center;color:var(--muted)}
+.stages li i{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:0 0 16px}
+.stages li.cur{color:var(--ink);font-weight:700}
+.stages li.cur i{border-color:var(--rose);border-top-color:transparent;animation:spin 1s linear infinite}
+.stages li.done i{background:var(--ok);border-color:var(--ok)}
+.prog{position:relative;height:16px;border-radius:8px;background:var(--paper);border:1px solid var(--line);margin:14px 0 4px}
+.fill{position:absolute;left:0;top:0;bottom:0;border-radius:8px;width:0;transition:width .6s ease}
+.fill.indet{width:100%!important;background:repeating-linear-gradient(-45deg,var(--line) 0 10px,transparent 10px 20px)!important;
+  background-size:28px 28px!important;animation:slide 1s linear infinite}
+.brush{position:absolute;top:-30px;width:40px;height:40px;margin-left:-6px;transition:left .6s ease;transform-origin:20% 90%;animation:dab .9s ease-in-out infinite}
+.nums{display:flex;justify-content:space-between;gap:12px;font:400 .82rem var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;flex-wrap:wrap}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes slide{to{background-position:28px 0}}
+@keyframes dab{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(8deg) translateY(2px)}}
+@media (prefers-reduced-motion: reduce){.brush,.stages li.cur i,.fill.indet{animation:none}.fill,.brush,.easel img{transition:none}}
+
+/* ---- resultado (igual que v1, con jueces y versiones) ---- */
+section.result{border-top:1px solid var(--line);margin-top:30px;padding-top:26px;display:grid;gap:20px}
+.rhead{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap}
+.vnav{display:flex;gap:6px;align-items:center;font:400 .84rem var(--mono);color:var(--muted)}
+.mode{display:inline-block;background:var(--rose);color:var(--paper);font:500 .7rem/1 var(--mono);padding:4px 8px;border-radius:10px;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}
+.panel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px}
+@media (max-width:820px){.panel{grid-template-columns:1fr}}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pair figure{margin:0;display:grid;gap:6px}
+.pair img{width:100%;max-width:100%;border-radius:2px}
+.pair figcaption{font-size:.84rem;color:var(--muted)}
+.summary{font-size:1.04rem;margin:14px 0 0}
+.strips{display:grid;gap:8px;margin-top:14px}
+.strip{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:center;font-size:.84rem;color:var(--muted)}
+.bar{display:flex;height:22px;border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+.bar span{display:block;height:100%}
+.paltext{font-size:.95rem;margin:10px 0 0}
+.meters{display:grid;gap:10px}
+.meter{display:grid;grid-template-columns:150px 1fr 92px;gap:10px;align-items:center;font-size:.86rem}
+.meter .track{position:relative;height:10px;background:var(--paper);border:1px solid var(--line);border-radius:5px}
+.meter .track i{position:absolute;top:-3px;width:14px;height:14px;border-radius:50%;transform:translateX(-50%)}
+.meter .track .a{border:2px solid var(--muted);background:var(--card)} .meter .track .b{background:var(--rose)}
+.meter output{font:400 .8rem var(--mono);color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.traits{display:grid;gap:14px}
+.trait{display:grid;gap:4px}
+.trait .t{display:flex;justify-content:space-between;gap:10px;font-size:.92rem}
+.trait .val{font:400 .8rem var(--mono);color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.scale{position:relative;height:18px}
+.scale::before{content:"";position:absolute;left:0;right:0;top:8px;height:2px;background:var(--line)}
+.scale i{position:absolute;top:3px;width:12px;height:12px;border-radius:50%;transform:translateX(-50%)}
+.scale .a{border:2px solid var(--muted);background:var(--card)} .scale .b{background:var(--rose)}
+.scale .p{width:3px;height:18px;top:0;border-radius:0;background:var(--blue)}
+.scale .arr{position:absolute;top:8px;height:2px;background:var(--rose);opacity:.6}
+.eff{font-size:.88rem;color:var(--muted)} .near{color:var(--ok);font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:.8rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%}
+.limit{border-left:3px solid var(--rose);padding-left:12px;font-size:.95rem;margin:0}
+.judge{font-size:.88rem;color:var(--muted);margin:0}
+/* ---- antes / despues con deslizador ---- */
+.viewtoggle{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;font-size:.8rem;margin-bottom:8px}
+.viewtoggle button{all:unset;cursor:pointer;padding:4px 10px}
+.viewtoggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.viewtoggle button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.cmp{position:relative;--pos:50%;user-select:none;-webkit-user-select:none;border-radius:2px;overflow:hidden;touch-action:pan-y;max-width:560px}
+.cmp > img{display:block;width:100%}
+.cmp .top{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos))}
+.cmp .top img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:fill;display:block;max-width:none}
+.cmp .line{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.35);pointer-events:none}
+.cmp .knob{position:absolute;top:50%;left:var(--pos);width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;background:#fff;color:#1b2130;display:grid;place-items:center;font:700 15px var(--mono);box-shadow:0 1px 5px rgba(0,0,0,.45);pointer-events:none}
+.cmp:has(input:focus-visible) .knob{outline:3px solid var(--blue)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp .lab{position:absolute;top:8px;font:500 .68rem/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:5px 7px;border-radius:2px;pointer-events:none}
+.cmp .lab.l{left:8px} .cmp .lab.r{right:8px}
+
+/* ---- comparar los 3 modos ---- */
+.compare{border-top:1px solid var(--line);margin-top:30px;padding-top:26px;display:grid;gap:16px}
+.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:820px){.cgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.ccol{display:grid;gap:6px;align-content:start}
+.ccol .frame{position:relative;aspect-ratio:1;background:var(--card);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.ccol .frame img{width:100%;height:100%;object-fit:contain;display:block}
+.fbtn{all:unset;cursor:pointer;display:block;width:100%;height:100%}
+.ccol .frame img:not([src]){visibility:hidden}
+.ccol .msg a{color:var(--ink)}
+.fbtn:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.ccol .mini{position:absolute;left:8px;right:8px;bottom:8px;height:6px;border-radius:3px;background:rgba(255,255,255,.7);overflow:hidden}
+.ccol .mini span{display:block;height:100%;width:0;background:var(--rose);transition:width .5s ease}
+.ccol h3{font-size:1.1rem}
+.ccol .cn{font:400 .78rem/1.5 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.ccol .cn b{color:var(--ink);font-weight:500}
+.ccol .stars{font-size:.8rem;color:var(--ok);font-weight:700;min-height:1.2em}
+.ccol .msg{font-size:.8rem;color:var(--muted)}
+.box{background:var(--card);border:1px solid var(--line);padding:16px 18px;border-radius:3px;display:grid;gap:8px}
+.box h3{font-size:1.3rem} .box p{margin:0;font-size:.95rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Simulador de colores · corre en tu PC</span>
+  <h1>Picasso entre períodos</h1>
+  <p>Elige una obra, decide el período destino y el simulador cambia solo la <b>paleta y la textura de la pincelada</b> (motor de colores, Gatys con VGG19); la forma de la obra no se toca. Cada simulación queda guardada en tu PC: si vuelves a pedirla aparece al instante, y puedes generar otra versión cuando quieras.</p>
+</header>
+
+<div class="top">
+  <div>
+    <span class="eyebrow">1 · Elige una obra</span>
+    <div class="filters">
+      <input type="search" id="q" placeholder="Título, lugar o número (ej. Guernica, Gósol, OPP.37)" aria-label="Buscar obra">
+      <select id="fperiodo" aria-label="Período de la obra"><option value="">Todos los períodos</option></select>
+      <select id="fcat" aria-label="Tipo de obra"><option value="">Pinturas, acuarelas, gouaches y pasteles</option></select>
+      <select id="porpag" aria-label="Obras por página"><option value="10">10 por página</option><option value="20">20 por página</option><option value="30">30 por página</option></select>
+      <label class="check"><input type="checkbox" id="sologen"> Solo ya simuladas</label>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="pager">
+      <button class="btn" id="first" type="button" aria-label="Primera página">«</button>
+      <button class="btn" id="prev" type="button">Anterior</button>
+      <span id="pinfo"></span>
+      <button class="btn" id="next" type="button">Siguiente</button>
+      <button class="btn" id="last" type="button" aria-label="Última página">»</button>
+    </div>
+  </div>
+
+  <aside class="side">
+    <div class="sel" id="sel"><img alt=""><div><h3>Ninguna obra elegida</h3><span class="eyebrow">Haz clic en una obra de la lista</span></div></div>
+    <span class="eyebrow">2 · Qué cambia</span>
+    <p class="hint" id="tabdesc">Cambia solo la paleta y la textura de la pincelada hacia el promedio real del período elegido. La forma de la obra no se toca.</p>
+    <label class="field"><span class="eyebrow">3 · Período destino</span><select id="periodo"><option value="">Elige un período…</option></select></label>
+    <div class="opts">
+      <label>Tamaño <select id="lado"><option value="256">256 px · rápido</option><option value="384">384 px</option><option value="512">512 px · lento</option></select></label>
+      <label id="pasosWrap">Pasos <select id="pasos"><option value="250">250</option><option value="400">400</option><option value="600">600</option></select></label>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="go" type="button" disabled>Generar simulación</button>
+      <button class="btn" id="regen" type="button" hidden>Volver a generar</button>
+    </div>
+    <div class="status" id="status" role="status"></div>
+    <div id="savedWrap" hidden><span class="eyebrow">Ya generadas para esta obra</span><div class="chips" id="chips" style="margin-top:6px"></div></div>
+  </aside>
+</div>
+
+<section class="taller" id="taller" hidden aria-live="polite">
+  <div class="easel"><img id="pvA" alt=""><img id="pvB" alt="" style="opacity:0"><div class="tex"></div></div>
+  <div class="tinfo">
+    <span class="eyebrow" id="tk">En el taller</span>
+    <h2 id="tt"></h2>
+    <ol class="stages" id="stages"></ol>
+    <div class="prog" aria-hidden="true"><div class="fill" id="fill"></div>
+      <svg class="brush" id="brush" viewBox="0 0 40 40"><g transform="rotate(-35 20 20)">
+        <rect x="17" y="2" width="6" height="20" rx="2" fill="var(--wood)"/><rect x="16" y="20" width="8" height="6" fill="var(--muted)"/>
+        <path d="M16 26 Q14 34 20 38 Q26 34 24 26 Z" fill="var(--rose)"/></g></svg></div>
+    <div class="nums"><span id="tstep"></span><span id="ttime"></span></div>
+    <p class="hint" id="tnote"></p>
+  </div>
+</section>
+
+<section class="result" id="result" hidden></section>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nf = new Intl.NumberFormat('es');
+const KEYS = ['saturacion','brillo','contraste','calidez','textura'];
+const DOM = {saturacion:[0,.6], brillo:[0,1], contraste:[0,.35], calidez:[-1,1], textura:[0,.1]};
+const pct = (k,v) => { const [a,b] = DOM[k]; return Math.max(0, Math.min(100, (v-a)/(b-a)*100)); };
+const MODOS = {colores:'Solo colores'};
+const claveDe = (p,l,pa) => `colores__${p}__${l}px__${pa}p__-f`;
+let P = {}, page = 0, pages = 1, sel = null, saved = [], poll = null, pv = 0, best = 0, showB = false, current = null;
+const S = {porpag:20, lado:384, pasos:400, vista:'deslizar'};
+try { Object.assign(S, JSON.parse(localStorage.getItem('picasso-colores') || '{}')); } catch(e) {}
+const guardarPrefs = () => { try { localStorage.setItem('picasso-colores', JSON.stringify(S)); } catch(e) {} };
+
+async function api(path, opts){ const r = await fetch(path, opts); const j = await r.json(); if (!r.ok) throw new Error(j.error || r.statusText); return j; }
+function bar(pal){ return '<div class="bar">' + pal.map(c => `<span style="width:${(c.pct*100).toFixed(1)}%;background:${c.hex}" title="${esc(c.nombre)} ${(c.pct*100).toFixed(0)}%"></span>`).join('') + '</div>'; }
+function status(t, err){ $('#status').className = 'status' + (err ? ' err' : ''); $('#status').textContent = t; }
+
+async function init(){
+  P = await api('/api/periodos');
+  const cats = await api('/api/categorias');
+  for (const [k,p] of Object.entries(P)) {
+    $('#fperiodo').insertAdjacentHTML('beforeend', `<option value="${k}">${esc(p.nombre)} (${esc(p.anios)}) · ${nf.format(p.n_catalogo)}</option>`);
+    $('#periodo').insertAdjacentHTML('beforeend', `<option value="${k}">${esc(p.nombre)} · ${esc(p.anios)}</option>`);
+  }
+  for (const [k,v] of Object.entries(cats)) $('#fcat').insertAdjacentHTML('beforeend', `<option value="${k}">${esc(v)}</option>`);
+  $('#porpag').value = S.porpag; $('#lado').value = S.lado; $('#pasos').value = S.pasos;
+  acciones(); search();
+}
+
+/* ---------- galeria y paginacion ---------- */
+let timer;
+async function search(){
+  const qs = new URLSearchParams({q: $('#q').value, periodo: $('#fperiodo').value, cat: $('#fcat').value, page, n: S.porpag, solo_gen: $('#sologen').checked ? 1 : 0});
+  const r = await api('/api/buscar?' + qs); page = r.page; pages = r.pages;
+  $('#grid').innerHTML = r.items.length ? r.items.map(it => `
+    <button class="item" type="button" data-id="${esc(it.id)}" aria-pressed="${!!sel && sel.id === it.id}">
+      <img loading="lazy" src="/thumb/${encodeURIComponent(it.id)}" alt="">
+      ${it.generadas ? `<span class="badge" title="${it.generadas} simulaciones guardadas">● ${it.generadas}</span>` : ''}
+      <b>${esc(it.titulo)}</b><span>${it.anio} · ${esc(it.categoria)}</span></button>`).join('')
+    : '<p class="hint">No hay obras con esos filtros.</p>';
+  r.items.forEach(it => { const b = $(`.item[data-id="${CSS.escape(it.id)}"]`); if (b) b._it = it; });
+  $('#pinfo').textContent = `${nf.format(r.total)} obras · página ${nf.format(page+1)} de ${nf.format(pages)}`;
+  $('#first').disabled = $('#prev').disabled = page === 0; $('#next').disabled = $('#last').disabled = page >= pages-1;
+}
+['#fperiodo','#fcat','#sologen'].forEach(s => $(s).addEventListener('change', () => { page = 0; search(); }));
+$('#porpag').addEventListener('change', () => { S.porpag = +$('#porpag').value; guardarPrefs(); page = 0; search(); });
+$('#q').addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => { page = 0; search(); }, 300); });
+$('#first').onclick = () => { page = 0; search(); }; $('#prev').onclick = () => { page--; search(); };
+$('#next').onclick = () => { page++; search(); }; $('#last').onclick = () => { page = pages-1; search(); };
+$('#grid').addEventListener('click', e => { const b = e.target.closest('.item'); if (!b) return;
+  sel = b._it; document.querySelectorAll('.item').forEach(x => x.setAttribute('aria-pressed', x === b));
+  $('#sel').innerHTML = `<img src="/thumb/${encodeURIComponent(sel.id)}" alt=""><div><span class="eyebrow">${esc(sel.id)} · ${sel.anio} · ${esc(sel.categoria)}</span><h3>${esc(sel.titulo)}</h3><span class="eyebrow">${esc(P[sel.periodo].nombre)}</span></div>`;
+  [...$('#periodo').options].forEach(o => { if (!o.value) return;
+    const propio = o.value === sel.periodo;   // la obra ya es de ese periodo: no hay nada que transformar
+    o.textContent = `${P[o.value].nombre} · ${P[o.value].anios}${propio ? ' (es el de la obra)' : ''}`; o.disabled = propio; });
+  if ($('#periodo').value === sel.periodo) { $('#periodo').value = ''; status(`Esta obra ya es del ${P[sel.periodo].nombre}; elige otro período destino.`); }
+  cargarGuardadas(); });
+
+/* ---------- periodo y configuracion ---------- */
+$('#periodo').addEventListener('change', () => acciones());
+[['#lado','lado'],['#pasos','pasos']].forEach(([s,k]) => $(s).addEventListener('change', () => { S[k] = +$(s).value; guardarPrefs(); acciones(); }));
+function claveActual(){ return claveDe($('#periodo').value, S.lado, S.pasos); }
+function acciones(){
+  const ocupado = !!poll, ok = sel && $('#periodo').value && !ocupado;
+  const hay = ok && saved.some(x => x.clave === claveActual());
+  $('#go').disabled = !ok; $('#go').textContent = ocupado ? 'Generando…' : hay ? 'Ver simulación guardada' : 'Generar simulación';
+  $('#regen').hidden = !hay;
+}
+
+/* ---------- simulaciones guardadas ---------- */
+async function cargarGuardadas(){
+  saved = sel ? await api('/api/guardadas?id=' + encodeURIComponent(sel.id)) : [];
+  const ult = {}; saved.forEach(x => { if (!ult[x.clave] || x.version > ult[x.clave].version) ult[x.clave] = x; });
+  const L = Object.values(ult);
+  $('#savedWrap').hidden = !L.length;
+  $('#chips').innerHTML = L.map(x => `<button type="button" data-clave="${esc(x.clave)}" title="${x.lado} px · ${x.segundos} s · ${esc(x.fecha)}">${esc(MODOS[x.modo])} · ${esc(P[x.periodo].nombre)}${x.version > 1 ? ' · v' + x.version : ''}</button>`).join('');
+  acciones();
+}
+$('#chips').addEventListener('click', async e => { const b = e.target.closest('[data-clave]'); if (!b) return;
+  try { render(await api(`/api/resultado?id=${encodeURIComponent(sel.id)}&clave=${encodeURIComponent(b.dataset.clave)}`)); status('Simulación guardada.'); }
+  catch(err){ status('No se pudo abrir: ' + err.message, true); } });
+
+/* ---------- generar + taller ---------- */
+$('#go').onclick = () => generar(false);
+$('#regen').onclick = () => generar(true);
+async function generar(regen, params){
+  const body = params ? {...params, regenerar: regen}
+    : {id: sel.id, modo: 'colores', periodo: $('#periodo').value, lado: S.lado, pasos: S.pasos, regenerar: regen};
+  status('');
+  try {
+    const r = await api('/api/generar', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+    if (r.cache) { render(r.resultado); status(`Simulación guardada el ${r.resultado.fecha}. Usa «Volver a generar» para otra versión.`); return; }
+    seguir(r.job, body);
+  } catch(err){ status('No se pudo generar: ' + err.message, true); }
+}
+function seguir(id, body){
+  pv = 0; best = 0; showB = false;
+  const p = P[body.periodo];
+  $('#tt').textContent = `${MODOS[body.modo]} → ${p.nombre}`;
+  $('#tk').textContent = `En el taller · ${sel && sel.id === body.id ? sel.titulo : current && current.obra.id === body.id ? current.obra.titulo : body.id}`;
+  $('#pvA').src = ''; $('#pvB').src = ''; $('#pvA').style.opacity = 1; $('#pvB').style.opacity = 0;
+  const pal = (p.perfil && p.perfil.paleta || []).map(c => c.hex);
+  $('#fill').style.background = pal.length ? `linear-gradient(90deg, ${pal.join(',')})` : 'var(--rose)';
+  $('#taller').hidden = false; $('#result').hidden = true;
+  $('#taller').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center'});
+  let fallos = 0, ocupado = false;
+  const tick = async () => {
+    if (ocupado) return; ocupado = true;
+    try {
+      const s = await api(`/api/trabajo?job=${id}&pv=${pv}`);
+      fallos = 0; taller(s);
+      if (s.estado === 'listo') { parar(); render(s.resultado); status(`Listo en ${s.resultado.t.segundos} s · guardado en tu PC.`); cargarGuardadas(); search(); }
+      else if (s.estado === 'error') { parar(); status('Falló la generación: ' + s.error, true); }
+    } catch(err){   // un fallo suelto no corta el seguimiento; varios seguidos si
+      if (++fallos >= 6) { parar(); status('Se perdió el contacto con el simulador (¿se cerró la ventana negra?): ' + err.message, true); }
+    } finally { ocupado = false; }
+  };
+  poll = setInterval(tick, 700); tick(); acciones();
+}
+function parar(){ clearInterval(poll); poll = null; $('#taller').hidden = true; acciones(); }
+const mmss = s => { s = Math.max(0, Math.round(s)); return s >= 60 ? `${Math.floor(s/60)} min ${String(s%60).padStart(2,'0')} s` : `${s} s`; };
+function taller(s){
+  if (s.preview) { pv = s.preview_v; const [on, off] = showB ? ['#pvA','#pvB'] : ['#pvB','#pvA'];
+    $(on).src = s.preview; $(on).style.opacity = 1; $(off).style.opacity = 0; showB = !showB; }
+  $('#stages').innerHTML = s.etapas.map((e,i) => `<li class="${s.estado === 'corriendo' ? (i < s.etapa ? 'done' : i === s.etapa ? 'cur' : '') : ''}"><i></i>${esc(e.nombre)}</li>`).join('');
+  const indet = s.estado === 'en_cola' || (s.nota || '').startsWith('Cargando') || s.restante == null;
+  $('#fill').classList.toggle('indet', indet);
+  let frac = 0;
+  if (!indet) { frac = s.transcurrido / (s.transcurrido + s.restante); best = Math.max(best, Math.min(.99, frac)); }
+  $('#fill').style.width = (best*100).toFixed(1) + '%'; $('#brush').style.left = indet ? '0%' : (best*100).toFixed(1) + '%';
+  $('#brush').style.visibility = indet ? 'hidden' : 'visible';
+  if (s.estado === 'en_cola') { $('#tstep').textContent = s.en_cola_antes ? `En cola: ${s.en_cola_antes} simulación(es) antes` : 'Empezando…'; $('#ttime').textContent = ''; }
+  else {
+    $('#tstep').textContent = `Etapa ${s.etapa+1} de ${s.etapas.length} · paso ${s.paso} de ${s.total}`;
+    $('#ttime').textContent = `${mmss(s.transcurrido)} transcurridos` + (s.restante != null && !indet ? ` · faltan ~${mmss(s.restante)}` : '');
+  }
+  $('#tnote').textContent = s.nota || (s.preview_v ? 'La imagen de la izquierda es la vista previa en vivo: así va quedando.' : '');
+}
+
+/* ---------- resultado ---------- */
+function ficha(id){
+  const p = P[id], lug = (p.lugares_catalogo || []).map(l => `${esc(l.lugar)} (${nf.format(l.obras)})`).join(', ');
+  return `<div class="box"><span class="eyebrow">${esc(p.anios)} · ${nf.format(p.n_catalogo)} obras en el catálogo</span><h3>${esc(p.nombre)}</h3>
+    <p><b>Dónde:</b> ${esc(p.lugares)}.</p>${lug ? `<p><b>Lugares más frecuentes de sus pinturas:</b> ${lug}.</p>` : ''}
+    <p><b>Qué pasaba:</b> ${esc(p.contexto)}</p><p><b>Cómo pintaba:</b> ${esc(p.rasgos)}</p><p><b>Obras clave:</b> ${esc(p.obras)}</p></div>`;
+}
+const meter = (lab, a, b, fmt) => `<div class="meter"><span>${lab}</span><div class="track"><i class="a" style="left:${a*100}%"></i><i class="b" style="left:${b*100}%"></i></div><output>${fmt(a)} → ${fmt(b)}</output></div>`;
+const P0 = v => Math.round(v*100) + '%';
+function render(res, scroll = true){
+  current = res;
+  const {obra, t} = res, e = t.explicacion, per = t.target, vs = res.versiones || [res.version], vi = vs.indexOf(res.version);
+  const traits = e.rasgos.map((r,i) => { const k = KEYS[i], a = obra.medidas[k], b = t.medidas[k], p = parseFloat(r.periodo), pa = pct(k,a), pb = pct(k,b);
+    return `<div class="trait"><div class="t"><b>${esc(r.rasgo)}</b><span class="val">${esc(r.antes)} → ${esc(r.despues)} · período ${esc(r.periodo)}</span></div>
+      <div class="scale" aria-hidden="true"><span class="arr" style="left:${Math.min(pa,pb)}%;width:${Math.abs(pb-pa)}%"></span><i class="p" style="left:${pct(k,p)}%"></i><i class="a" style="left:${pa}%"></i><i class="b" style="left:${pb}%"></i></div>
+      <div class="eff">${esc(r.efecto[0].toUpperCase() + r.efecto.slice(1))}.${r.se_acerca ? ' <span class="near">Se acerca al período.</span>' : ''}</div></div>`; }).join('');
+  const bn = obra.medidas.saturacion < 0.08 ? '<p class="hint">La obra original es casi en blanco y negro (dibujo, grabado o foto): todo el color de la simulación viene del período destino.</p>' : '';
+  const prm = res.params, conf = `${prm.lado} px` + ` · ${prm.pasos} pasos`;
+  const R = $('#result'); R.hidden = false;
+  R.innerHTML = `<div class="rhead"><div><span class="eyebrow">${esc(obra.id)} · ${obra.anio} · ${esc(obra.categoria)}${obra.lugar ? ' · ' + esc(obra.lugar) : ''}</span>
+      <h2>${esc(obra.titulo)} → ${esc(e.destino)} <span class="mode">${esc(MODOS[t.modo])}</span></h2>
+      <span class="eyebrow">${esc(conf)} · ${t.segundos} s · ${esc(res.fecha)}</span></div>
+    <div class="actions" style="align-items:center">
+      <div class="vnav"><button class="btn" type="button" id="vprev" ${vi <= 0 ? 'disabled' : ''} aria-label="Versión anterior">‹</button>
+        versión ${vi+1} de ${vs.length}<button class="btn" type="button" id="vnext" ${vi >= vs.length-1 ? 'disabled' : ''} aria-label="Versión siguiente">›</button></div>
+      <button class="btn" type="button" id="rregen">Volver a generar</button>
+      <a class="btn" href="${t.archivo_url}" download="${esc(obra.id.replace(':','_'))}_${esc(per)}_${esc(t.modo)}_v${res.version}.jpg">Descargar</a></div></div>
+    <div class="panel"><div>
+      <div class="viewtoggle" role="group" aria-label="Cómo ver la comparación">
+        <button type="button" data-vista="deslizar" aria-pressed="${S.vista !== 'lado'}">Deslizar</button>
+        <button type="button" data-vista="lado" aria-pressed="${S.vista === 'lado'}">Lado a lado</button></div>
+      ${S.vista === 'lado'
+        ? `<div class="pair"><figure><img src="${obra.img}" alt="Original"><figcaption>Original · ${esc(obra.periodo_nombre)}, ${obra.anio}</figcaption></figure>
+           <figure><img src="${t.img}" alt="Simulación"><figcaption>${esc(MODOS[t.modo])} · ${esc(e.destino)}</figcaption></figure></div>`
+        : `<div class="cmp"><img src="${obra.img}" alt="Original · ${esc(obra.periodo_nombre)}"><div class="top"><img src="${t.img}" alt="Simulación · ${esc(e.destino)}"></div>
+             <span class="lab l">Original</span><span class="lab r">Simulación</span><div class="line"></div><div class="knob" aria-hidden="true">⇆</div>
+             <input type="range" min="0" max="100" value="50" aria-label="Deslizar para comparar la original (izquierda) con la simulación (derecha)"></div>
+           <p class="hint" style="margin-top:6px">Desliza: a la izquierda la original (${esc(obra.periodo_nombre)}, ${obra.anio}), a la derecha la simulación.</p>`}
+      <p class="summary">${esc(e.resumen)}</p>${bn}
+      <div class="strips"><div class="strip">Original${bar(obra.medidas.paleta)}</div><div class="strip">Simulación${bar(t.medidas.paleta)}</div><div class="strip">Período (promedio)${bar(P[per].perfil.paleta)}</div></div>
+      <p class="paltext">${esc(e.paleta_texto)}</p></div>
+    <div style="display:grid;gap:16px;align-content:start">
+      <div><span class="eyebrow">Qué dicen los jueces (probabilidad del período destino)</span></div>
+      <div class="meters">${meter('Juez de colores (CNN propia)', t.cnn.antes, t.cnn.despues, P0)}${meter('Juez ResNet18', t.resnet.antes, t.resnet.despues, P0)}</div>
+      <div class="legend"><span><i style="border:2px solid var(--muted);background:var(--card)"></i>original</span><span><i style="background:var(--rose)"></i>simulación</span><span><i style="background:var(--blue);border-radius:0;width:3px"></i>promedio del período</span></div>
+      <div class="traits">${traits}</div>
+      ${e.no_reproduce.map(n => `<p class="limit"><b>Lo que no se puede copiar:</b> ${esc(n)}</p>`).join('')}
+      <p class="judge">${esc(e.juez)}</p></div></div>
+    ${ficha(per)}`;
+  const sl = R.querySelector('.cmp input');
+  if (sl) sl.addEventListener('input', () => sl.parentNode.style.setProperty('--pos', sl.value + '%'));
+  R.querySelectorAll('[data-vista]').forEach(b => b.onclick = () => { S.vista = b.dataset.vista; guardarPrefs(); render(current, false); });
+  const ver = async v => { try { render(await api(`/api/resultado?id=${encodeURIComponent(obra.id)}&clave=${encodeURIComponent(res.clave)}&v=${v}`)); } catch(err){ status(err.message, true); } };
+  $('#vprev').onclick = () => ver(vs[vi-1]); $('#vnext').onclick = () => ver(vs[vi+1]);
+  $('#rregen').onclick = () => { if (!poll) generar(true, {id: obra.id, modo: 'colores', periodo: prm.periodo, lado: prm.lado, pasos: prm.pasos || 400}); };
+  if (scroll) R.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+}
+init().catch(err => status('No se pudo cargar el catálogo: ' + err.message, true));
+</script>
+</body>
+</html>

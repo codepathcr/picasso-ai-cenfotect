@@ -1,0 +1,402 @@
+{
+ "00_temprano": {
+  "saturacion": 0.32652213623126347,
+  "brillo": 0.444945942958196,
+  "contraste": 0.16239842027425766,
+  "calidez": 0.6833841959635417,
+  "textura": 0.032365070196489494,
+  "paleta": [
+   {
+    "hex": "#504336",
+    "nombre": "gris oscuro",
+    "pct": 0.245
+   },
+   {
+    "hex": "#2d251e",
+    "nombre": "negro",
+    "pct": 0.196
+   },
+   {
+    "hex": "#785f44",
+    "nombre": "marrón",
+    "pct": 0.179
+   },
+   {
+    "hex": "#867963",
+    "nombre": "gris",
+    "pct": 0.17
+   },
+   {
+    "hex": "#ad9c7f",
+    "nombre": "beige",
+    "pct": 0.162
+   },
+   {
+    "hex": "#d3cfbf",
+    "nombre": "gris claro",
+    "pct": 0.048
+   }
+  ],
+  "n_obras": 338
+ },
+ "01_azul": {
+  "saturacion": 0.33836468358834587,
+  "brillo": 0.45240581095218657,
+  "contraste": 0.18212746500968932,
+  "calidez": -0.12832692464192708,
+  "textura": 0.04161552006999652,
+  "paleta": [
+   {
+    "hex": "#212c30",
+    "nombre": "negro",
+    "pct": 0.231
+   },
+   {
+    "hex": "#4e4c3e",
+    "nombre": "gris oscuro",
+    "pct": 0.197
+   },
+   {
+    "hex": "#48656b",
+    "nombre": "azul grisáceo",
+    "pct": 0.187
+   },
+   {
+    "hex": "#7f8f87",
+    "nombre": "gris",
+    "pct": 0.174
+   },
+   {
+    "hex": "#bec0ae",
+    "nombre": "gris claro",
+    "pct": 0.117
+   },
+   {
+    "hex": "#9e7f43",
+    "nombre": "verde oliva",
+    "pct": 0.094
+   }
+  ],
+  "n_obras": 249
+ },
+ "02_rosa": {
+  "saturacion": 0.30779028296857686,
+  "brillo": 0.5387720897213205,
+  "contraste": 0.14489538754735673,
+  "calidez": 0.6182914832969765,
+  "textura": 0.03102089006260231,
+  "paleta": [
+   {
+    "hex": "#ac8f75",
+    "nombre": "beige",
+    "pct": 0.247
+   },
+   {
+    "hex": "#7b7166",
+    "nombre": "gris",
+    "pct": 0.194
+   },
+   {
+    "hex": "#5c4d42",
+    "nombre": "gris oscuro",
+    "pct": 0.175
+   },
+   {
+    "hex": "#c9b9a4",
+    "nombre": "beige",
+    "pct": 0.147
+   },
+   {
+    "hex": "#2f2b2a",
+    "nombre": "gris oscuro",
+    "pct": 0.133
+   },
+   {
+    "hex": "#9b5e39",
+    "nombre": "marrón",
+    "pct": 0.104
+   }
+  ],
+  "n_obras": 87
+ },
+ "03_iberico_africano": {
+  "saturacion": 0.35595588470405004,
+  "brillo": 0.4730164483189583,
+  "contraste": 0.18223151698146225,
+  "calidez": 0.47815459629274765,
+  "textura": 0.04383300272044989,
+  "paleta": [
+   {
+    "hex": "#50473c",
+    "nombre": "gris oscuro",
+    "pct": 0.267
+   },
+   {
+    "hex": "#2c2923",
+    "nombre": "negro",
+    "pct": 0.189
+   },
+   {
+    "hex": "#8f5c35",
+    "nombre": "marrón",
+    "pct": 0.149
+   },
+   {
+    "hex": "#b09471",
+    "nombre": "beige",
+    "pct": 0.144
+   },
+   {
+    "hex": "#6e726d",
+    "nombre": "gris",
+    "pct": 0.139
+   },
+   {
+    "hex": "#c9c2b4",
+    "nombre": "gris claro",
+    "pct": 0.111
+   }
+  ],
+  "n_obras": 109
+ },
+ "04_cubismo_analitico": {
+  "saturacion": 0.25241566558678946,
+  "brillo": 0.5108212035894394,
+  "contraste": 0.18060374289751052,
+  "calidez": 0.5218373616536458,
+  "textura": 0.04958575596412023,
+  "paleta": [
+   {
+    "hex": "#7f735e",
+    "nombre": "gris",
+    "pct": 0.252
+   },
+   {
+    "hex": "#5d5546",
+    "nombre": "gris oscuro",
+    "pct": 0.246
+   },
+   {
+    "hex": "#a2947b",
+    "nombre": "gris",
+    "pct": 0.205
+   },
+   {
+    "hex": "#35332c",
+    "nombre": "gris oscuro",
+    "pct": 0.14
+   },
+   {
+    "hex": "#c1b8a6",
+    "nombre": "gris claro",
+    "pct": 0.125
+   },
+   {
+    "hex": "#edebe4",
+    "nombre": "blanco",
+    "pct": 0.032
+   }
+  ],
+  "n_obras": 242
+ },
+ "05_cubismo_sintetico": {
+  "saturacion": 0.297320283104976,
+  "brillo": 0.49189200073480605,
+  "contraste": 0.20324144693712393,
+  "calidez": 0.38042266845703127,
+  "textura": 0.047387330662459135,
+  "paleta": [
+   {
+    "hex": "#a19986",
+    "nombre": "gris",
+    "pct": 0.221
+   },
+   {
+    "hex": "#4c4235",
+    "nombre": "gris oscuro",
+    "pct": 0.206
+   },
+   {
+    "hex": "#676a62",
+    "nombre": "gris",
+    "pct": 0.18
+   },
+   {
+    "hex": "#201d1a",
+    "nombre": "negro",
+    "pct": 0.14
+   },
+   {
+    "hex": "#d3ccb8",
+    "nombre": "beige",
+    "pct": 0.128
+   },
+   {
+    "hex": "#95714a",
+    "nombre": "marrón",
+    "pct": 0.125
+   }
+  ],
+  "n_obras": 302
+ },
+ "06_neoclasico": {
+  "saturacion": 0.27445351640383403,
+  "brillo": 0.5402583269278208,
+  "contraste": 0.21456404785315195,
+  "calidez": 0.3664439900716146,
+  "textura": 0.04929986073945959,
+  "paleta": [
+   {
+    "hex": "#ada290",
+    "nombre": "gris claro",
+    "pct": 0.221
+   },
+   {
+    "hex": "#594b41",
+    "nombre": "gris oscuro",
+    "pct": 0.204
+   },
+   {
+    "hex": "#757572",
+    "nombre": "gris",
+    "pct": 0.18
+   },
+   {
+    "hex": "#d5cfbf",
+    "nombre": "gris claro",
+    "pct": 0.154
+   },
+   {
+    "hex": "#292522",
+    "nombre": "negro",
+    "pct": 0.152
+   },
+   {
+    "hex": "#ac7d4b",
+    "nombre": "ocre",
+    "pct": 0.088
+   }
+  ],
+  "n_obras": 416
+ },
+ "07_surrealista": {
+  "saturacion": 0.27354061111807826,
+  "brillo": 0.5685378117362658,
+  "contraste": 0.2217972125361363,
+  "calidez": 0.279793701171875,
+  "textura": 0.05053274120514591,
+  "paleta": [
+   {
+    "hex": "#b2ae9e",
+    "nombre": "gris claro",
+    "pct": 0.217
+   },
+   {
+    "hex": "#5b564c",
+    "nombre": "gris oscuro",
+    "pct": 0.197
+   },
+   {
+    "hex": "#83857d",
+    "nombre": "gris",
+    "pct": 0.181
+   },
+   {
+    "hex": "#d6d2c7",
+    "nombre": "gris claro",
+    "pct": 0.177
+   },
+   {
+    "hex": "#2b2621",
+    "nombre": "negro",
+    "pct": 0.163
+   },
+   {
+    "hex": "#ad7239",
+    "nombre": "ocre",
+    "pct": 0.065
+   }
+  ],
+  "n_obras": 561
+ },
+ "08_guerra": {
+  "saturacion": 0.27381912315885226,
+  "brillo": 0.5248466092348099,
+  "contraste": 0.2247348967194557,
+  "calidez": 0.20436503092447916,
+  "textura": 0.049750180045763655,
+  "paleta": [
+   {
+    "hex": "#534d46",
+    "nombre": "gris oscuro",
+    "pct": 0.219
+   },
+   {
+    "hex": "#a6a69b",
+    "nombre": "gris claro",
+    "pct": 0.209
+   },
+   {
+    "hex": "#777a74",
+    "nombre": "gris",
+    "pct": 0.193
+   },
+   {
+    "hex": "#272521",
+    "nombre": "negro",
+    "pct": 0.173
+   },
+   {
+    "hex": "#d4d1c4",
+    "nombre": "gris claro",
+    "pct": 0.138
+   },
+   {
+    "hex": "#ba843d",
+    "nombre": "ocre",
+    "pct": 0.067
+   }
+  ],
+  "n_obras": 767
+ },
+ "09_tardio": {
+  "saturacion": 0.2418477027118206,
+  "brillo": 0.5550261141856512,
+  "contraste": 0.23907305071751275,
+  "calidez": 0.16165669759114584,
+  "textura": 0.06079681538045406,
+  "paleta": [
+   {
+    "hex": "#5a574c",
+    "nombre": "gris oscuro",
+    "pct": 0.22
+   },
+   {
+    "hex": "#7a817b",
+    "nombre": "gris",
+    "pct": 0.211
+   },
+   {
+    "hex": "#ababa1",
+    "nombre": "gris claro",
+    "pct": 0.201
+   },
+   {
+    "hex": "#d8d5ca",
+    "nombre": "blanco",
+    "pct": 0.156
+   },
+   {
+    "hex": "#2c2c27",
+    "nombre": "gris oscuro",
+    "pct": 0.154
+   },
+   {
+    "hex": "#bf984b",
+    "nombre": "ocre",
+    "pct": 0.058
+   }
+  ],
+  "n_obras": 2047
+ }
+}

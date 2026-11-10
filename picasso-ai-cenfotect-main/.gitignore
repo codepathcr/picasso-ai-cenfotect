@@ -1,0 +1,13 @@
+# Credenciales y datos protegidos: nunca se suben al repositorio
+.env
+data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# macOS
+.DS_Store

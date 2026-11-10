@@ -1,0 +1,12 @@
+# Entorno de picasso-estilos (clasificadores, DDP, Gatys).
+# Versiones con las que se corrio el proyecto (Windows, Python 3.13.7, CUDA 12.4, RTX 3080 Ti).
+# Instalar PyTorch primero desde el indice de CUDA:
+#   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0
+torchvision==0.21.0
+numpy==2.5.2
+pandas==3.0.6
+pillow==12.3.0
+scikit-learn==1.9.1
+matplotlib==3.11.2
+tqdm==4.70.1

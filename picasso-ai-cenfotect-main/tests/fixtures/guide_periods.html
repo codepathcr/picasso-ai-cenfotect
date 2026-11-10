@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Overview - On-line Picasso Project</title>
+
+<link rel="stylesheet" href="./css/main.css"/>
+<link rel="stylesheet" href="./css/GuideList.css"/>
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/popup.js"></script>
+<link rel="icon" href="./images/opp.ico" type="image/x-icon">
+<link rel="shortcut icon" href="./images/opp.ico" type="image/x-icon">
+</head>
+
+<body onload="window.name='OPPMain';">
+<center>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		<td id="FakeBodyHeader">
+<table class="MainHeader" cellspacing="0" align="center">
+	<tr>
+		<td class="Emblem">
+<a href="index.php"><img src="images/opp-emblem-innershadow.png" width="77" height="65" border="0" /></a>
+		</td>
+		<td class="Title" colspan="5">
+<img src="images/opp-title-innershadow.png" width="438" height="35" border="0" onclick="SetOnclickPortal(this);"/>
+		</td>
+	</tr>
+</table>
+	<table class="MainHeader" cellspacing="0" align="center">
+	<tr class="Links">
+		<td class="Spacer">&nbsp;</td>
+		<td>
+<a href="index.php?view=MenuBiographyYear" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;">biography</a>
+		</td>
+		<td>
+<a href="index.php?view=MenuArtworksYear&category=painting_collage_photograph_sculpture_ceramic_drawing_watercolor_gouache_pastel_engraving_lithograph_other" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;">artworks</a>
+		</td>
+		<td>
+<a href="index.php?view=MenuWritingsYear" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;">writings</a>
+		</td>
+		<td>
+<a href="index.php?view=MenuCollectionsLetter" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;">collections</a>
+		</td>
+		<td>
+<a href="index.php?view=MenuReferencesLetter"  target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;">references</a>
+		</td>
+		<td>
+<a href="index.php?view=MenuArchivesYear" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 280); return false;"> </a>
+		</td>
+
+	</tr>
+	</table>
+	</td>
+	</tr>
+	</table>
+<div id="OPPFloatingMenuContainer" class="OPPFloatingMenuContainer">
+<iframe src="" border="0" name="OPPFloatingMenu" id="OPPFloatingMenu" frameborder="0" class="OPPFloatingMenu"></iframe>
+</div><table width="760" border="0" cellspacing="0" cellpadding="0" class="main_body">
+  <tr>
+    <td align="center" style="padding:15px 15px 15px 15px">
+	  <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center" valign="middle">	
+		    <table border="0" align="center" cellpadding="0" cellspacing="0">
+		      <tr>
+			    <td width="40" align="center">&nbsp;</td>
+		      </tr>
+	        </table>
+	      </td>
+        </tr>
+
+		<tr>
+          <td>
+            <table class="TabContainer" id="MenuTabs" cellspacing="0" align="center">
+              <tr class="Tabs">
+  	            <td class="Active"><img src="./images/magnify-text.png"/>Periods</td>
+                    <td class="Inactive"><a href="index.php?view=GuideListThemes"/><img src="./images/magnify-text.png"/>Themes</a></td>
+  	            <td class="Inactive"><a href="index.php?view=GuideMaster"/><img src="./images/magnify-text.png"/>Artists</a></td> 
+				<td class="Inactive"><a href="index.php?view=MenuListsSearch&category=painting_collage_photograph_sculpture_ceramic_drawing_watercolor_gouache_pastel_engraving_lithograph_other" target="menuPopup" onclick="OpenSearchBox(this.href, this.target, 550, 120); return false;"><img src="./images/magnify-text.png"/>Lists</a></td>				
+				<td class="EmptySpace">&nbsp;</td>
+              </tr>
+              <tr>
+	            <td class="Container" colspan="5">
+<!---------------------------- starting heading2 ---------------------------->
+<br/>
+<br/>
+<!---------------------------- end of heading2 ---------------------------->
+<!----------------------- start search form----------------------->
+<form method="get" action="index.php" target="OPPMain" name="GuideSearchForm" id="GuideSearchForm">
+	<input type="text" name="view" id="view" size="1" value="GuideSearchS" style=" display:none"/>
+	<table class="SearchForm" id="GuideSearch" cellspacing="0" align="center" width="100%">
+	<!-- Starts Style search -->
+	<tr>
+	  <td class="fieldLabel">Periods: </td>
+		<td class="fieldCtrls">
+			<div class="ScrollArea" id="StyleTable">
+			<table cellspacing="0" width="100%">
+			<tr>
+				<td width="33%">
+				  <table>
+				  				  	<tr>
+						<td><input name="StyleSearch0" type="checkbox" value="The Málaga Years" />
+							The Málaga Years						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch1" type="checkbox" value="Academic Period" />
+							Academic Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch2" type="checkbox" value="A Coruña Years" />
+							A Coruña Years						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch3" type="checkbox" value="Social Realism" />
+							Social Realism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch4" type="checkbox" value="Barcelona Years" />
+							Barcelona Years						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch5" type="checkbox" value="Madrid Years" />
+							Madrid Years						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch6" type="checkbox" value="Symbolism" />
+							Symbolism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch7" type="checkbox" value="Black Period" />
+							Black Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch8" type="checkbox" value="Post-Impressionism" />
+							Post-Impressionism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch9" type="checkbox" value="Proto-Fauvism" />
+							Proto-Fauvism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch10" type="checkbox" value="Toulouse-Lautrec Period" />
+							Toulouse-Lautrec Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch11" type="checkbox" value="Pre-Blue Period" />
+							Pre-Blue Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch12" type="checkbox" value="Blue Period" />
+							Blue Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch13" type="checkbox" value="Dirty Period" />
+							Dirty Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch14" type="checkbox" value="Rose Period" />
+							Rose Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch15" type="checkbox" value="Circus Period" />
+							Circus Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch16" type="checkbox" value="Harlequin Period" />
+							Harlequin Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch17" type="checkbox" value="Iberian Period" />
+							Iberian Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch18" type="checkbox" value="Classical Period" />
+							Classical Period						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch19" type="checkbox" value="Exorcist Phase" />
+							Exorcist Phase						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch20" type="checkbox" value="Proto-Cubism" />
+							Proto-Cubism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch21" type="checkbox" value="Cézannian Cubism" />
+							Cézannian Cubism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch22" type="checkbox" value="Analytic Cubism" />
+							Analytic Cubism						</td>
+				  	</tr>				  
+				  				  	<tr>
+						<td><input name="StyleSearch23" type="checkbox" value="Geometrical Cubism" />
+							Geometrical Cubism						</td>
+				  	</tr>				  
+				  				  </table>
+				</td>
+				
+				<td width="33%">
+				  <table>
+				  				  	<tr>
+						<td><input name="StyleSearch24" type="checkbox" value="Hermetic Cubism" />
+							Hermetic Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch25" type="checkbox" value="High Analytic Cubism" />
+							High Analytic Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch26" type="checkbox" value="Synthetic Cubism" />
+							Synthetic Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch27" type="checkbox" value="First Generation of Papiers Collés" />
+							First Generation of Papiers Collés						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch28" type="checkbox" value="Pointllist Cubism" />
+							Pointllist Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch29" type="checkbox" value="Second Generation of Papiers Collés" />
+							Second Generation of Papiers Collés						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch30" type="checkbox" value="Surrealist Cubism" />
+							Surrealist Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch31" type="checkbox" value="First World War Years" />
+							First World War Years						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch32" type="checkbox" value="Third Series of Papiers Collés" />
+							Third Series of Papiers Collés						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch33" type="checkbox" value="Confetti Cubism" />
+							Confetti Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch34" type="checkbox" value="Crystal Period" />
+							Crystal Period						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch35" type="checkbox" value="Rococo Cubism" />
+							Rococo Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch36" type="checkbox" value="Realist Cubism" />
+							Realist Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch37" type="checkbox" value="Amorous Cubism" />
+							Amorous Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch38" type="checkbox" value="Ballet Years" />
+							Ballet Years						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch39" type="checkbox" value="Neoclassicism" />
+							Neoclassicism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch40" type="checkbox" value="Olga Period" />
+							Olga Period						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch41" type="checkbox" value="Epoque des Duchesses" />
+							Epoque des Duchesses						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch42" type="checkbox" value="Purist Cubism" />
+							Purist Cubism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch43" type="checkbox" value="Biomorphic Style" />
+							Biomorphic Style						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch44" type="checkbox" value="Surrealism" />
+							Surrealism						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch45" type="checkbox" value="Magic Series" />
+							Magic Series						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch46" type="checkbox" value="Crucifixion Series" />
+							Crucifixion Series						</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch47" type="checkbox" value="Cabana Series" />
+							Cabana Series						</td>
+				  	</tr>			  
+				  				  </table>
+				</td>
+				
+				<td width="34%">
+				  <table>
+				  				  	<tr>
+						<td><input name="StyleSearch48" type="checkbox" value="Marie-Thérèse Years" />
+							Marie-Thérèse Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch49" type="checkbox" value="1927 Cannes Cabana Series" />
+							1927 Cannes Cabana Series													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch50" type="checkbox" value="1928 Dinard Cabana Series" />
+							1928 Dinard Cabana Series													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch51" type="checkbox" value="Deucalion Period" />
+							Deucalion Period													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch52" type="checkbox" value="1929 Cabana Series" />
+							1929 Cabana Series													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch53" type="checkbox" value="Sculpture and Minotaur" />
+							Sculpture and Minotaur													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch54" type="checkbox" value="Bone Period" />
+							Bone Period													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch55" type="checkbox" value="1930-1938 Cabana Series" />
+							1930-1938 Cabana Series													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch56" type="checkbox" value="Civil War Years" />
+							Civil War Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch57" type="checkbox" value="Dora Maar Years" />
+							Dora Maar Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch58" type="checkbox" value="Guernica Era" />
+							Guernica Era													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch59" type="checkbox" value="Second World War Years" />
+							Second World War Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch60" type="checkbox" value="Françoise Years" />
+							Françoise Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch61" type="checkbox" value="Purple Period" />
+							Purple Period													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch62" type="checkbox" value="Red Period" />
+							Red Period													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch63" type="checkbox" value="Antibes & Vallauris" />
+							Antibes & Vallauris													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch64" type="checkbox" value="Mediterranean Years" />
+							Mediterranean Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch65" type="checkbox" value="Antipolis Series" />
+							Antipolis Series													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch66" type="checkbox" value="Californie Years" />
+							Californie Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch67" type="checkbox" value="Jacqueline Years" />
+							Jacqueline Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch68" type="checkbox" value="Vauvenargues Years" />
+							Vauvenargues Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch69" type="checkbox" value="Notre Dame de Vie Years" />
+							Notre Dame de Vie Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td><input name="StyleSearch70" type="checkbox" value="Last Years" />
+							Last Years													</td>
+				  	</tr>			  
+				  				  	<tr>
+						<td>&nbsp;						</td>
+				  	</tr>			  
+				  				  </table>
+				</td>
+			</tr>
+			</table>
+			</div>
+		</td>
+	</tr>
+	<!-- Ends Style search -->	
+	
+    <!-- Starts Technique search -->
+	<tr>
+	  <td class="fieldLabel">Categories: </td>
+		<td class="fieldCtrls">
+			<!-- <form action="" method="get" name="TechniqueList" id="TechniqueList"> -->
+			<table cellspacing="0" width="100%">
+				<tr>
+                     <td style= "width:32%">&nbsp;<input name="CategorySearchIn1" id="CategorySearchIn1"  type="checkbox" value="painting" checked="checked"  />
+                     painting</td>
+                     <td width="32%">&nbsp;<input name="CategorySearchIn6" id="CategorySearchIn6" type="checkbox" value="drawing" checked="checked"  />
+                     drawing</td>
+                     <td width="34%">&nbsp;<input name="CategorySearchIn8" id="CategorySearchIn8" type="checkbox" value="gouache" checked="checked"  />
+                     gouache</td><td><input type="checkbox" onchange="checkAll(this)" checked="checked" align="right"/></td>
+				</tr>
+				<tr>					 
+		     <td width="95">&nbsp;<input name="CategorySearchIn9" id="CategorySearchIn9" type="checkbox" value="pastel" checked="checked"  />
+		     pastel</td>
+    		     <td width="95">&nbsp;<input name="CategorySearchIn7" id="CategorySearchIn7" type="checkbox" value="watercolor" checked="checked"  />
+                     watercolor</td>
+                     <td width="95">&nbsp;<input name="CategorySearchIn4" id="CategorySearchIn4" type="checkbox" value="sculpture" checked="checked"  />
+                     sculpture</td>
+				</tr>
+				<tr>
+                     <td>&nbsp;<input name="CategorySearchIn2" id="CategorySearchIn2" type="checkbox" value="collage" checked="checked"  />
+                     collage</td>
+                     <td>&nbsp;<input name="CategorySearchIn3" id="CategorySearchIn3" type="checkbox" value="photograph" checked="checked"  />
+                     photograph</td>
+                     <td>&nbsp;<input name="CategorySearchIn10" id="CategorySearchIn10" type="checkbox" value="engraving" checked="checked"  />
+                     engraving</td>
+				</tr>
+				<tr>
+                     <td>&nbsp;<input name="CategorySearchIn11" id="CategorySearchIn11" type="checkbox" value="lithograph" checked="checked"  />
+                     lithograph</td>
+                     <td>&nbsp;<input name="CategorySearchIn5" id="CategorySearchIn5" type="checkbox" value="ceramic" checked="checked"  />
+                     ceramic</td>
+                     <td>&nbsp;<input name="CategorySearchIn12"id="CategorySearchIn12"  type="checkbox" value="other" checked="checked"  />
+                     other</td>
+         		</tr>
+			</table>
+			<!-- </form> -->
+		</td>
+	</tr>
+	<!-- Ends Technique search -->
+
+	<!-- Starts sorting -->
+	<tr><td class="fieldLabel">Sorting: </td>
+		<td class="fieldCtrls">
+			<table cellspacing="0">
+				<tr><td>1. </td>
+					<td>	<select size="1" name="SortBy1"><option>OPP</option><option>Chronology</option><option>Title</option><option>Location</option><option>Medium</option><option>Dimension</option><option>Collection</option><option>Category</option></select>
+						<select size="1" name="CatalogSort1" id="CatalogSort1" style="display:none">
+													</select>
+					</td>
+					<td>	<input type="radio" value="Asc"  name="SortDirection1" id="Order1a" checked="true"/> <label for="Order1a"> Ascending</label>&nbsp;</td>
+					<td>	<input type="radio" value="Desc" name="SortDirection1" id="Order1d"               /> <label for="Order1d"> Descending</label>	</td>
+				</tr>
+				<tr><td>2. </td>
+					<td>	<select size="1" name="SortBy2"><option>OPP</option><option>Chronology</option><option>Title</option><option>Location</option><option>Medium</option><option>Dimension</option><option>Collection</option><option>Category</option></select>
+					    <select size="1" name="CatalogSort2" id="CatalogSort2" style=" display:none">
+													</select>
+
+
+					</td>
+					<td>	<input type="radio" value="Asc"  name="SortDirection2" id="Order2a" checked="true"/> <label for="Order2a"> Ascending</label>&nbsp;	</td>
+					<td>	<input type="radio" value="Desc" name="SortDirection2" id="Order2d"               /> <label for="Order2d"> Descending</label>	</td>
+				</tr>
+			</table>
+			<input type="text" name="stylenum" id="stylenum" size="1" value="71" style=" display:none"/>	
+				
+		</td>
+	</tr>
+	<!-- Ends sorting -->
+
+	<tr><td class="submitArea" colspan="2">
+			<input type="submit" value="Search" id="FormSubmit"/>
+			<input type="reset"  value="Reset"  id="FormReset"/>
+		</td>
+	</tr>
+	<!-- Ends submit -->
+	</table>
+</form>
+
+<!----------------------- end of search form----------------------->
+				</td>
+              </tr>				
+            </table>
+		  </td>
+        </tr>
+      </table>
+	</td>
+  </tr>
+</table>
+<table width="760" height="40" border="0" cellpadding="0" cellspacing="0" class="footer_table">
+    <tr>
+      <td>
+		<table width="740" height="30" align="center" cellspacing="0">
+          <tr>
+            <td align="left">
+			  <a href="index.php" target="_self" class="footer_link">Home</a> | <a href="index.php?view=Copyright" class="footer_link" onClick="OpenWin(this.href, this.target, 550, 450); return false;">Terms & Conditions</a> | <a href="index.php?view=Contact" class="footer_link" onClick="OpenWin(this.href, this.target, 550, 250); return false;">Contact</a> 
+			</td>
+			<td align="right">
+			    &copy;&nbsp;1997-2026&nbsp;<a href="./mallen/Curriculum.html" class="footer_link" onClick="OpenWin(this.href, this.target, 780, 900); return false;">Prof. Dr. Enrique Mallen</a>
+			</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table></center>
+</body>
+</html>

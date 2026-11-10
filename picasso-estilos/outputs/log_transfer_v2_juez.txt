@@ -1,0 +1,32 @@
+{'target': '01_azul', 'judge_target': '01_azul', 'p_target_before': 0.998, 'p_target_after': 1.0, 'pred_before': '01_azul', 'pred_after': '01_azul', 'content': 'OPP.01:041', 'source_style': '01_azul', 'file': 'OPP.01_041__to__01_azul.jpg'}
+{'target': '04_cubismo_analitico', 'judge_target': '04_cubismo_analitico', 'p_target_before': 0.0, 'p_target_after': 1.0, 'pred_before': '01_azul', 'pred_after': '04_cubismo_analitico', 'content': 'OPP.01:041', 'source_style': '01_azul', 'file': 'OPP.01_041__to__04_cubismo_analitico.jpg'}
+{'target': '07_surrealista', 'judge_target': '07_surrealista', 'p_target_before': 0.0, 'p_target_after': 0.999, 'pred_before': '01_azul', 'pred_after': '07_surrealista', 'content': 'OPP.01:041', 'source_style': '01_azul', 'file': 'OPP.01_041__to__07_surrealista.jpg'}
+{'target': '09_tardio', 'judge_target': '09_tardio', 'p_target_before': 0.0, 'p_target_after': 0.999, 'pred_before': '01_azul', 'pred_after': '09_tardio', 'content': 'OPP.01:041', 'source_style': '01_azul', 'file': 'OPP.01_041__to__09_tardio.jpg'}
+{'target': '08_guerra:0.6,01_azul:0.4', 'judge_target': '08_guerra', 'p_target_before': 0.0, 'p_target_after': 1.0, 'pred_before': '01_azul', 'pred_after': '08_guerra', 'content': 'OPP.01:041', 'source_style': '01_azul', 'file': 'OPP.01_041__to__08_guerra-0.6+01_azul-0.4.jpg'}
+{'target': '01_azul', 'judge_target': '01_azul', 'p_target_before': 0.0, 'p_target_after': 1.0, 'pred_before': '04_cubismo_analitico', 'pred_after': '01_azul', 'content': 'OPP.11:150', 'source_style': '04_cubismo_analitico', 'file': 'OPP.11_150__to__01_azul.jpg'}
+{'target': '04_cubismo_analitico', 'judge_target': '04_cubismo_analitico', 'p_target_before': 0.972, 'p_target_after': 1.0, 'pred_before': '04_cubismo_analitico', 'pred_after': '04_cubismo_analitico', 'content': 'OPP.11:150', 'source_style': '04_cubismo_analitico', 'file': 'OPP.11_150__to__04_cubismo_analitico.jpg'}
+{'target': '07_surrealista', 'judge_target': '07_surrealista', 'p_target_before': 0.0, 'p_target_after': 0.998, 'pred_before': '04_cubismo_analitico', 'pred_after': '07_surrealista', 'content': 'OPP.11:150', 'source_style': '04_cubismo_analitico', 'file': 'OPP.11_150__to__07_surrealista.jpg'}
+{'target': '09_tardio', 'judge_target': '09_tardio', 'p_target_before': 0.001, 'p_target_after': 1.0, 'pred_before': '04_cubismo_analitico', 'pred_after': '09_tardio', 'content': 'OPP.11:150', 'source_style': '04_cubismo_analitico', 'file': 'OPP.11_150__to__09_tardio.jpg'}
+{'target': '08_guerra:0.6,01_azul:0.4', 'judge_target': '08_guerra', 'p_target_before': 0.0, 'p_target_after': 0.999, 'pred_before': '04_cubismo_analitico', 'pred_after': '08_guerra', 'content': 'OPP.11:150', 'source_style': '04_cubismo_analitico', 'file': 'OPP.11_150__to__08_guerra-0.6+01_azul-0.4.jpg'}
+{'target': '01_azul', 'judge_target': '01_azul', 'p_target_before': 0.0, 'p_target_after': 0.999, 'pred_before': '09_tardio', 'pred_after': '01_azul', 'content': 'OPP.70:157', 'source_style': '09_tardio', 'file': 'OPP.70_157__to__01_azul.jpg'}
+{'target': '04_cubismo_analitico', 'judge_target': '04_cubismo_analitico', 'p_target_before': 0.0, 'p_target_after': 1.0, 'pred_before': '09_tardio', 'pred_after': '04_cubismo_analitico', 'content': 'OPP.70:157', 'source_style': '09_tardio', 'file': 'OPP.70_157__to__04_cubismo_analitico.jpg'}
+{'target': '07_surrealista', 'judge_target': '07_surrealista', 'p_target_before': 0.162, 'p_target_after': 0.999, 'pred_before': '09_tardio', 'pred_after': '07_surrealista', 'content': 'OPP.70:157', 'source_style': '09_tardio', 'file': 'OPP.70_157__to__07_surrealista.jpg'}
+{'target': '09_tardio', 'judge_target': '09_tardio', 'p_target_before': 0.803, 'p_target_after': 0.999, 'pred_before': '09_tardio', 'pred_after': '09_tardio', 'content': 'OPP.70:157', 'source_style': '09_tardio', 'file': 'OPP.70_157__to__09_tardio.jpg'}
+{'target': '08_guerra:0.6,01_azul:0.4', 'judge_target': '08_guerra', 'p_target_before': 0.023, 'p_target_after': 0.999, 'pred_before': '09_tardio', 'pred_after': '08_guerra', 'content': 'OPP.70:157', 'source_style': '09_tardio', 'file': 'OPP.70_157__to__08_guerra-0.6+01_azul-0.4.jpg'}
+       content          source_style                     target  p_target_before  p_target_after            pred_after
+0   OPP.01:041               01_azul                    01_azul            0.998           1.000               01_azul
+1   OPP.01:041               01_azul       04_cubismo_analitico            0.000           1.000  04_cubismo_analitico
+2   OPP.01:041               01_azul             07_surrealista            0.000           0.999        07_surrealista
+3   OPP.01:041               01_azul                  09_tardio            0.000           0.999             09_tardio
+4   OPP.01:041               01_azul  08_guerra:0.6,01_azul:0.4            0.000           1.000             08_guerra
+5   OPP.11:150  04_cubismo_analitico                    01_azul            0.000           1.000               01_azul
+6   OPP.11:150  04_cubismo_analitico       04_cubismo_analitico            0.972           1.000  04_cubismo_analitico
+7   OPP.11:150  04_cubismo_analitico             07_surrealista            0.000           0.998        07_surrealista
+8   OPP.11:150  04_cubismo_analitico                  09_tardio            0.001           1.000             09_tardio
+9   OPP.11:150  04_cubismo_analitico  08_guerra:0.6,01_azul:0.4            0.000           0.999             08_guerra
+10  OPP.70:157             09_tardio                    01_azul            0.000           0.999               01_azul
+11  OPP.70:157             09_tardio       04_cubismo_analitico            0.000           1.000  04_cubismo_analitico
+12  OPP.70:157             09_tardio             07_surrealista            0.162           0.999        07_surrealista
+13  OPP.70:157             09_tardio                  09_tardio            0.803           0.999             09_tardio
+14  OPP.70:157             09_tardio  08_guerra:0.6,01_azul:0.4            0.023           0.999             08_guerra
+Juez sube prob. del destino: 15 / 15 | juez clasifica como destino: 15 / 15

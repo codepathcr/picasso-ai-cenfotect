@@ -1,0 +1,31 @@
+            variante     content                     target  resnet18_antes  resnet18_despues  resnet18_acierta  cnn_antes  cnn_despues  cnn_acierta
+0        transfer_v2  OPP.01:041       04_cubismo_analitico           0.000             0.000             False      0.026        0.744         True
+1        transfer_v2  OPP.01:041             07_surrealista           0.000             0.000             False      0.015        0.252        False
+2        transfer_v2  OPP.01:041                  09_tardio           0.000             0.000             False      0.034        0.564         True
+3        transfer_v2  OPP.01:041  08_guerra:0.6,01_azul:0.4           0.000             0.001             False      0.064        0.192         True
+4        transfer_v2  OPP.11:150                    01_azul           0.000             0.305             False      0.000        0.762         True
+5        transfer_v2  OPP.11:150             07_surrealista           0.000             0.009             False      0.003        0.246         True
+6        transfer_v2  OPP.11:150                  09_tardio           0.000             0.156             False      0.021        0.679         True
+7        transfer_v2  OPP.11:150  08_guerra:0.6,01_azul:0.4           0.000             0.000             False      0.005        0.156        False
+8        transfer_v2  OPP.70:157                    01_azul           0.000             0.000             False      0.001        0.567         True
+9        transfer_v2  OPP.70:157       04_cubismo_analitico           0.000             0.000             False      0.006        0.288         True
+10       transfer_v2  OPP.70:157             07_surrealista           0.120             0.301             False      0.186        0.340         True
+11       transfer_v2  OPP.70:157  08_guerra:0.6,01_azul:0.4           0.019             0.499              True      0.184        0.232         True
+12  transfer_v2_juez  OPP.01:041       04_cubismo_analitico           0.000             0.036             False      0.026        0.837         True
+13  transfer_v2_juez  OPP.01:041             07_surrealista           0.000             0.001             False      0.015        0.258        False
+14  transfer_v2_juez  OPP.01:041                  09_tardio           0.000             0.002             False      0.034        0.589         True
+15  transfer_v2_juez  OPP.01:041  08_guerra:0.6,01_azul:0.4           0.000             0.012             False      0.064        0.178         True
+16  transfer_v2_juez  OPP.11:150                    01_azul           0.000             0.981              True      0.000        0.771         True
+17  transfer_v2_juez  OPP.11:150             07_surrealista           0.000             0.066             False      0.003        0.239         True
+18  transfer_v2_juez  OPP.11:150                  09_tardio           0.000             0.669              True      0.021        0.672         True
+19  transfer_v2_juez  OPP.11:150  08_guerra:0.6,01_azul:0.4           0.000             0.014             False      0.005        0.166        False
+20  transfer_v2_juez  OPP.70:157                    01_azul           0.000             0.021             False      0.001        0.568         True
+21  transfer_v2_juez  OPP.70:157       04_cubismo_analitico           0.000             0.000             False      0.006        0.325         True
+22  transfer_v2_juez  OPP.70:157             07_surrealista           0.120             0.738              True      0.186        0.334         True
+23  transfer_v2_juez  OPP.70:157  08_guerra:0.6,01_azul:0.4           0.019             0.909              True      0.184        0.230         True
+
+RESUMEN
+                   n  resnet_p  resnet_acierta  cnn_p_antes  cnn_p  cnn_acierta
+variante                                                                       
+transfer_v2       12     0.106           0.083        0.045  0.419        0.833
+transfer_v2_juez  12     0.287           0.333        0.045  0.431        0.833

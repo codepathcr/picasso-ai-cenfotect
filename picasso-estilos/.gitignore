@@ -1,0 +1,3 @@
+# Las reglas de que se sube estan en el .gitignore principal de la raiz.
+.venv/
+__pycache__/

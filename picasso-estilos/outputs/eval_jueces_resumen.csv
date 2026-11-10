@@ -1,0 +1,3 @@
+variante,n,resnet_p,resnet_acierta,cnn_p_antes,cnn_p,cnn_acierta
+transfer_v2,12,0.106,0.083,0.045,0.419,0.833
+transfer_v2_juez,12,0.287,0.333,0.045,0.431,0.833

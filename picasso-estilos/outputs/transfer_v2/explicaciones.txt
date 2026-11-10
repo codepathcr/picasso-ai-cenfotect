@@ -1,0 +1,150 @@
+
+== OPP.01:041 -> Período Azul
+La obra toma la paleta y la textura de Período Azul. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de gris oscuro, verde oliva, amarillo a gris, gris oscuro, azul verdoso oscuro. Aparecen tonos que no estaban: gris, azul verdoso oscuro.
+  Intensidad del color: 0.31 -> 0.35 (periodo 0.34) colores más vivos ✓
+  Claridad: 0.34 -> 0.43 (periodo 0.45) imagen más clara ✓
+  Contraste: 0.19 -> 0.23 (periodo 0.18) luces y sombras más marcadas
+  Temperatura del color: +0.11 -> -0.17 (periodo -0.13) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.028 -> 0.046 (periodo 0.042) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período Azul» y la nueva como «Período Azul». Probabilidad de Período Azul: 100% → 100%.
+
+== OPP.01:041 -> Cubismo analítico
+La obra toma la paleta y la textura de Cubismo analítico. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de gris oscuro, verde oliva, amarillo a gris, marrón, ocre. Aparecen tonos que no estaban: gris, marrón, ocre.
+  Intensidad del color: 0.31 -> 0.22 (periodo 0.25) colores más apagados ✓
+  Claridad: 0.34 -> 0.47 (periodo 0.51) imagen más clara ✓
+  Contraste: 0.19 -> 0.20 (periodo 0.18) luces y sombras más marcadas
+  Temperatura del color: +0.11 -> +0.51 (periodo +0.52) más cálida (rojos, naranjas, amarillos) ✓
+  Pincelada y trazo: 0.028 -> 0.051 (periodo 0.050) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período Azul» y la nueva como «Período Rosa». Probabilidad de Cubismo analítico: 0% → 0%.
+
+== OPP.01:041 -> Período surrealista
+La obra toma la paleta y la textura de Período surrealista. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de gris oscuro, verde oliva, amarillo a marrón oscuro, gris, marrón. Aparecen tonos que no estaban: marrón oscuro, gris, marrón.
+  Intensidad del color: 0.31 -> 0.30 (periodo 0.27) casi no cambia ✓
+  Claridad: 0.34 -> 0.50 (periodo 0.57) imagen más clara ✓
+  Contraste: 0.19 -> 0.24 (periodo 0.22) luces y sombras más marcadas ✓
+  Temperatura del color: +0.11 -> +0.47 (periodo +0.28) más cálida (rojos, naranjas, amarillos)
+  Pincelada y trazo: 0.028 -> 0.046 (periodo 0.051) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período Azul» y la nueva como «Período neoclásico». Probabilidad de Período surrealista: 0% → 0%.
+
+== OPP.01:041 -> Período tardío
+La obra toma la paleta y la textura de Período tardío. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de gris oscuro, verde oliva, amarillo a gris, marrón oscuro, beige. Aparecen tonos que no estaban: gris, marrón oscuro, beige.
+  Intensidad del color: 0.31 -> 0.26 (periodo 0.24) colores más apagados ✓
+  Claridad: 0.34 -> 0.49 (periodo 0.56) imagen más clara ✓
+  Contraste: 0.19 -> 0.26 (periodo 0.24) luces y sombras más marcadas ✓
+  Temperatura del color: +0.11 -> +0.26 (periodo +0.16) más cálida (rojos, naranjas, amarillos)
+  Pincelada y trazo: 0.028 -> 0.066 (periodo 0.061) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período Azul» y la nueva como «Período neoclásico». Probabilidad de Período tardío: 0% → 0%.
+
+== OPP.01:041 -> Años de guerra (60%) + Período Azul (40%)
+La obra toma la paleta y la textura de Años de guerra (60%) + Período Azul (40%). De 5 rasgos medidos, 2 se acercan al promedio real de ese período en el dataset. Es una mezcla de influencias: el estilo se calculó combinando 60% de Años de guerra y 40% de Período Azul.
+Los colores dominantes pasan de gris oscuro, verde oliva, amarillo a gris oscuro, gris, azul verdoso. Aparecen tonos que no estaban: gris, azul verdoso.
+  Intensidad del color: 0.31 -> 0.32 (periodo 0.30) casi no cambia
+  Claridad: 0.34 -> 0.45 (periodo 0.50) imagen más clara ✓
+  Contraste: 0.19 -> 0.25 (periodo 0.21) luces y sombras más marcadas
+  Temperatura del color: +0.11 -> -0.01 (periodo +0.07) más fría (azules, verdes)
+  Pincelada y trazo: 0.028 -> 0.050 (periodo 0.046) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período Azul» y la nueva como «Período Azul». Probabilidad de Años de guerra: 0% → 2%.
+
+== OPP.11:150 -> Período Azul
+La obra toma la paleta y la textura de Período Azul. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de marrón, beige, gris claro a azul verdoso oscuro, gris, azul verdoso grisáceo. Aparecen tonos que no estaban: azul verdoso oscuro, gris, azul verdoso grisáceo.
+  Intensidad del color: 0.13 -> 0.35 (periodo 0.34) colores más vivos ✓
+  Claridad: 0.57 -> 0.50 (periodo 0.45) imagen más oscura ✓
+  Contraste: 0.21 -> 0.23 (periodo 0.18) luces y sombras más marcadas
+  Temperatura del color: +0.30 -> -0.12 (periodo -0.13) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.055 -> 0.046 (periodo 0.042) superficie más lisa ✓
+  El clasificador (ResNet18) veía la original como «Cubismo analítico» y la nueva como «Período Azul». Probabilidad de Período Azul: 0% → 62%.
+
+== OPP.11:150 -> Cubismo analítico
+La obra toma la paleta y la textura de Cubismo analítico. De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de marrón, beige, gris claro a marrón, beige, gris claro.
+  Intensidad del color: 0.13 -> 0.22 (periodo 0.25) colores más vivos ✓
+  Claridad: 0.57 -> 0.53 (periodo 0.51) imagen más oscura ✓
+  Contraste: 0.21 -> 0.21 (periodo 0.18) casi no cambia
+  Temperatura del color: +0.30 -> +0.43 (periodo +0.52) más cálida (rojos, naranjas, amarillos) ✓
+  Pincelada y trazo: 0.055 -> 0.052 (periodo 0.050) superficie más lisa ✓
+  El clasificador (ResNet18) veía la original como «Cubismo analítico» y la nueva como «Cubismo analítico». Probabilidad de Cubismo analítico: 97% → 93%.
+
+== OPP.11:150 -> Período surrealista
+La obra toma la paleta y la textura de Período surrealista. De 5 rasgos medidos, 2 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de marrón, beige, gris claro a gris oscuro, beige, blanco. Aparecen tonos que no estaban: gris oscuro.
+  Intensidad del color: 0.13 -> 0.28 (periodo 0.27) colores más vivos ✓
+  Claridad: 0.57 -> 0.59 (periodo 0.57) casi no cambia
+  Contraste: 0.21 -> 0.25 (periodo 0.22) luces y sombras más marcadas
+  Temperatura del color: +0.30 -> +0.43 (periodo +0.28) más cálida (rojos, naranjas, amarillos)
+  Pincelada y trazo: 0.055 -> 0.049 (periodo 0.051) superficie más lisa ✓
+  El clasificador (ResNet18) veía la original como «Cubismo analítico» y la nueva como «Cubismo sintético». Probabilidad de Período surrealista: 0% → 1%.
+
+== OPP.11:150 -> Período tardío
+La obra toma la paleta y la textura de Período tardío. De 5 rasgos medidos, 3 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de marrón, beige, gris claro a gris oscuro, beige, blanco. Aparecen tonos que no estaban: gris oscuro, blanco.
+  Intensidad del color: 0.13 -> 0.25 (periodo 0.24) colores más vivos ✓
+  Claridad: 0.57 -> 0.57 (periodo 0.56) casi no cambia
+  Contraste: 0.21 -> 0.27 (periodo 0.24) luces y sombras más marcadas ✓
+  Temperatura del color: +0.30 -> +0.21 (periodo +0.16) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.055 -> 0.068 (periodo 0.061) pinceladas y trazos más visibles
+  El clasificador (ResNet18) veía la original como «Cubismo analítico» y la nueva como «Período tardío». Probabilidad de Período tardío: 0% → 44%.
+
+== OPP.11:150 -> Años de guerra (60%) + Período Azul (40%)
+La obra toma la paleta y la textura de Años de guerra (60%) + Período Azul (40%). De 5 rasgos medidos, 4 se acercan al promedio real de ese período en el dataset. Es una mezcla de influencias: el estilo se calculó combinando 60% de Años de guerra y 40% de Período Azul.
+Los colores dominantes pasan de marrón, beige, gris claro a azul verdoso oscuro, gris, azul verdoso grisáceo. Aparecen tonos que no estaban: azul verdoso oscuro, gris, azul verdoso grisáceo.
+  Intensidad del color: 0.13 -> 0.32 (periodo 0.30) colores más vivos ✓
+  Claridad: 0.57 -> 0.52 (periodo 0.50) imagen más oscura ✓
+  Contraste: 0.21 -> 0.25 (periodo 0.21) luces y sombras más marcadas
+  Temperatura del color: +0.30 -> -0.02 (periodo +0.07) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.055 -> 0.051 (periodo 0.046) superficie más lisa ✓
+  El clasificador (ResNet18) veía la original como «Cubismo analítico» y la nueva como «Cubismo sintético». Probabilidad de Años de guerra: 0% → 0%.
+
+== OPP.70:157 -> Período Azul
+La obra toma la paleta y la textura de Período Azul. De 5 rasgos medidos, 3 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de ocre, gris claro, amarillo oscuro a gris, beige, azul verdoso oscuro. Aparecen tonos que no estaban: gris, beige, azul verdoso oscuro.
+  Intensidad del color: 0.35 -> 0.29 (periodo 0.34) colores más apagados
+  Claridad: 0.74 -> 0.57 (periodo 0.45) imagen más oscura ✓
+  Contraste: 0.20 -> 0.20 (periodo 0.18) casi no cambia
+  Temperatura del color: +0.66 -> +0.04 (periodo -0.13) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.032 -> 0.046 (periodo 0.042) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período tardío» y la nueva como «Años de guerra». Probabilidad de Período Azul: 0% → 0%.
+
+== OPP.70:157 -> Cubismo analítico
+La obra toma la paleta y la textura de Cubismo analítico. De 5 rasgos medidos, 5 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de ocre, gris claro, amarillo oscuro a beige, marrón, gris oscuro. Aparecen tonos que no estaban: beige, marrón.
+  Intensidad del color: 0.35 -> 0.21 (periodo 0.25) colores más apagados ✓
+  Claridad: 0.74 -> 0.60 (periodo 0.51) imagen más oscura ✓
+  Contraste: 0.20 -> 0.18 (periodo 0.18) luces y sombras más suaves ✓
+  Temperatura del color: +0.66 -> +0.45 (periodo +0.52) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.032 -> 0.051 (periodo 0.050) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período tardío» y la nueva como «Período tardío». Probabilidad de Cubismo analítico: 0% → 0%.
+
+== OPP.70:157 -> Período surrealista
+La obra toma la paleta y la textura de Período surrealista. De 5 rasgos medidos, 5 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de ocre, gris claro, amarillo oscuro a beige, marrón, granate. Aparecen tonos que no estaban: beige, marrón.
+  Intensidad del color: 0.35 -> 0.28 (periodo 0.27) colores más apagados ✓
+  Claridad: 0.74 -> 0.65 (periodo 0.57) imagen más oscura ✓
+  Contraste: 0.20 -> 0.22 (periodo 0.22) luces y sombras más marcadas ✓
+  Temperatura del color: +0.66 -> +0.48 (periodo +0.28) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.032 -> 0.046 (periodo 0.051) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período tardío» y la nueva como «Período tardío». Probabilidad de Período surrealista: 16% → 29%.
+
+== OPP.70:157 -> Período tardío
+La obra toma la paleta y la textura de Período tardío. De 5 rasgos medidos, 5 se acercan al promedio real de ese período en el dataset.
+Los colores dominantes pasan de ocre, gris claro, amarillo oscuro a gris, amarillo grisáceo, ocre. Aparecen tonos que no estaban: gris, amarillo grisáceo.
+  Intensidad del color: 0.35 -> 0.23 (periodo 0.24) colores más apagados ✓
+  Claridad: 0.74 -> 0.63 (periodo 0.56) imagen más oscura ✓
+  Contraste: 0.20 -> 0.24 (periodo 0.24) luces y sombras más marcadas ✓
+  Temperatura del color: +0.66 -> +0.33 (periodo +0.16) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.032 -> 0.066 (periodo 0.061) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período tardío» y la nueva como «Período tardío». Probabilidad de Período tardío: 80% → 90%.
+
+== OPP.70:157 -> Años de guerra (60%) + Período Azul (40%)
+La obra toma la paleta y la textura de Años de guerra (60%) + Período Azul (40%). De 5 rasgos medidos, 5 se acercan al promedio real de ese período en el dataset. Es una mezcla de influencias: el estilo se calculó combinando 60% de Años de guerra y 40% de Período Azul.
+Los colores dominantes pasan de ocre, gris claro, amarillo oscuro a gris, gris oscuro, beige. Aparecen tonos que no estaban: gris, gris oscuro, beige.
+  Intensidad del color: 0.35 -> 0.28 (periodo 0.30) colores más apagados ✓
+  Claridad: 0.74 -> 0.60 (periodo 0.50) imagen más oscura ✓
+  Contraste: 0.20 -> 0.22 (periodo 0.21) luces y sombras más marcadas ✓
+  Temperatura del color: +0.66 -> +0.12 (periodo +0.07) más fría (azules, verdes) ✓
+  Pincelada y trazo: 0.032 -> 0.049 (periodo 0.046) pinceladas y trazos más visibles ✓
+  El clasificador (ResNet18) veía la original como «Período tardío» y la nueva como «Años de guerra». Probabilidad de Años de guerra: 2% → 76%.

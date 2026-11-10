@@ -1,0 +1,68 @@
+# ---------------------------------------------------------------
+# Picasso entre periodos (avance: motor de colores) - que NO se sube al repositorio
+# ---------------------------------------------------------------
+
+# Secretos (credenciales del ETL). Se sube solo .env.example
+.env
+
+# Entornos y caches de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Datos descargados del catalogo (miles de imagenes): se regeneran con el ETL
+picasso-ai-cenfotect-main/data/
+picasso-ai-cenfotect-main/data_store/
+
+# Dataset de estilos completo: no se suben las pinturas, solo los archivos pequenos
+# (labels.csv, saturation.csv y perfiles_periodo.json si se suben)
+picasso-estilos/data/styles/train/
+picasso-estilos/data/styles/val/
+picasso-estilos/data/styles/test/
+picasso-estilos/data/**/*.jpg
+picasso-estilos/data/**/*.png
+
+# Dataset de demostracion: lo arma demo/armar_muestra.py desde muestras/pinturas
+picasso-estilos/data/muestra/
+
+# Pinturas sueltas en cualquier carpeta de datos
+**/data/**/*.jpg
+**/data/**/*.jpeg
+**/data/**/*.png
+
+# Pesos de modelos: se ignoran todos, salvo los que entrenamos nosotros (abajo)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# Modelos entrenados por nosotros: SI se suben (todos pesan menos de 50 MB)
+!picasso-estilos/outputs/cnn.pt
+!picasso-estilos/outputs/mlp.pt
+!picasso-estilos/outputs/resnet18.pt
+
+# Resultados de las demos y del simulador (se regeneran)
+demo/salida/
+picasso-simulador-colores/cache/
+picasso-simulador-colores/log_prueba.txt
+picasso-estilos/outputs/simulador/*.jpg
+
+# Imagenes generadas en las carpetas de salida (las de muestra van en docs/img)
+**/outputs/**/*.jpg
+**/outputs/**/*.jpeg
+**/outputs/**/*.png
+**/outputs/**/*.html
+
+# Marcas de fin y logs de autopruebas
+**/FIN*.txt
+**/log_prueba.txt
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
